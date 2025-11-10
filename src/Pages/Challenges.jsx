@@ -12,7 +12,7 @@ const Challenges = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold mb-6 text-[#297B33]">All Challenges</h2>
+      <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
         {challenges.map((challenge) => (
           <ActiveChallengesCard key={challenge._id} challenge={challenge} />
