@@ -16,7 +16,9 @@ const ActiveChallenges = () => {
         return today >= start && today <= end;
     });
     const firstFourActive = activeChallenges.slice(0, 4);
-    console.log("Active data: ",firstFourActive);
+
+    // console.log("Active data: ",firstFourActive);
+
     return (
         <div>
             <section className="py-12 bg-gray-50 text-center">

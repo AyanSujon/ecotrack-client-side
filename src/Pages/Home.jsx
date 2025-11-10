@@ -8,6 +8,8 @@ import ActiveChallenges from '../Components/Home/ActiveChallenges';
 import RecentTips from '../Components/Home/RecentTips';
 import UpcomingEvents from '../Components/Home/UpcomingEvents';
 import WhyGoGreen from '../Components/Home/WhyGoGreen';
+import HowItWorks from '../Components/Home/HowItWorks';
+import Newsletter from '../Components/Newsletter';
 
 const Home = () => {
 
@@ -29,6 +31,8 @@ const Home = () => {
             <RecentTips/>
             <UpcomingEvents/>
             <WhyGoGreen/>
+            <HowItWorks/>
+            <Newsletter/>
         </div>
     );
 };
