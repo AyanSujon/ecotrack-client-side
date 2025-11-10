@@ -40,7 +40,7 @@ const ActiveChallenges = () => {
 
                 {/* View All Button */}
                 <div className="mt-10">
-                    <Link to={"/challenges"} className="bg-green-600 text-white px-6 py-2 rounded-xl hover:bg-green-700 transition-colors duration-300">
+                    <Link to={"/challenges"} className=" text-white px-6 py-2 rounded-xl bg-[#297B33] hover:bg-[#82B532] transition-colors duration-300">
                         View All Challenges
                     </Link>
                 </div>

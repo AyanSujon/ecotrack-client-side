@@ -6,6 +6,7 @@ import Loading from './Loading';
 import Error404 from './Error404';
 import ActiveChallenges from '../Components/Home/ActiveChallenges';
 import RecentTips from '../Components/Home/RecentTips';
+import UpcomingEvents from '../Components/Home/UpcomingEvents';
 
 const Home = () => {
 
@@ -25,6 +26,7 @@ const Home = () => {
             <EcoStatusCards/>
             <ActiveChallenges/>
             <RecentTips/>
+            <UpcomingEvents/>
         </div>
     );
 };

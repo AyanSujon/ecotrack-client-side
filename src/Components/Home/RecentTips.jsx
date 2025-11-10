@@ -33,7 +33,7 @@ const RecentTips = () => {
 
                 {/* View All Button */}
                 <div className="mt-10">
-                    <Link to={"/eco-tips"} className="bg-green-600 text-white px-6 py-2 rounded-xl hover:bg-green-700 transition-colors duration-300">
+                    <Link to={"/eco-tips"} className="bg-[#297B33] hover:bg-[#82B532] text-white px-6 py-2 rounded-xl  transition-colors duration-300">
                         View All EcoTips
                     </Link>
                 </div>
