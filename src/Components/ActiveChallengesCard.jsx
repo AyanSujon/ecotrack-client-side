@@ -71,7 +71,7 @@ const ActiveChallengesCard = ({ challenge }) => {
         </div>
 
         {/* Button */}
-        <Link to={"/view-challenges"} className="mt-6 bg-[#297B33] hover:bg-[#82B532] text-white py-2 rounded-xl  transition-colors duration-300 w-full font-medium">
+        <Link  to={`/challenges/${challenge._id}`} className="mt-6 text-center bg-[#297B33] hover:bg-[#82B532] text-white py-2 rounded-xl  transition-colors duration-300 w-full font-medium">
           View Challenge
         </Link>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import useChallenges from "../Hooks/useChallenges";
 import ActiveChallengesCard from "../Components/ActiveChallengesCard";
 import Loading from "./Loading";
+import useChallenges from "../hooks/useChallenges";
 
 const Challenges = () => {
   const { challenges, loading, error } = useChallenges();
