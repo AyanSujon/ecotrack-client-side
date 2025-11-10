@@ -1,12 +1,31 @@
-// EcoTipCard.jsx
-import React from "react";
+import React, { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import { Link } from "react-router";
+import axios from "axios";
 
 const EcoTipCard = ({ tip }) => {
-  const { title, content, category, author, authorName, upvotes, createdAt } = tip;
+  const { _id, title, content, category, author, authorName, upvotes, createdAt } = tip;
   const formattedDate = new Date(createdAt).toLocaleDateString();
-  
+
+  const [voteCount, setVoteCount] = useState(upvotes);
+  const [isVoting, setIsVoting] = useState(false);
+
+  const handleUpvote = async () => {
+    if (isVoting) return; 
+    setIsVoting(true);
+    try {
+      //  update +1 with prev
+      setVoteCount(prev => prev + 1);
+
+      await axios.patch(`http://localhost:3000/api/ecotips/${_id}/upvote`);
+
+    } catch (error) {
+      console.error("Error upvoting:", error);
+      // revert if error
+      setVoteCount(prev => prev - 1);
+    } finally {
+      setIsVoting(false);
+    }
+  };
 
   return (
     <div className="max-w-md mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
@@ -28,19 +47,25 @@ const EcoTipCard = ({ tip }) => {
           <span className="font-medium">Author Name:</span> {authorName}
         </div>
         <div className="flex justify-between items-center text-sm text-gray-500 mb-2">
-          <span className="font-medium">Upvotes:</span> {upvotes}
+          <span className="font-medium">Upvotes:</span> {voteCount}
         </div>
         <div className="text-sm text-gray-400">
           Posted on: {formattedDate}
         </div>
       </div>
 
-      {/* Hover footer */}
-      <div className="flex justify-center ">
-        <div className="rounded-t-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-[#297B33] text-white text-center font-medium cursor-pointer hover:bg-[#82B532] transition-colors duration-300">
+      {/* Footer Button */}
+      <div className="flex justify-center">
+        <button
+          onClick={handleUpvote}
+          disabled={isVoting}
+          className={`rounded-t-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-[#297B33] text-white text-center font-medium cursor-pointer hover:bg-[#82B532] transition-colors duration-300 ${
+            isVoting ? "opacity-70 cursor-not-allowed" : ""
+          }`}
+        >
           <FaArrowUp />
-          <Link className=""> Upvote Tip</Link>
-        </div>
+          <span>{isVoting ? "Voting..." : "Upvote Tip"}</span>
+        </button>
       </div>
     </div>
   );
