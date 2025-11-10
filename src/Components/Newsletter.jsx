@@ -56,51 +56,6 @@ fetch('http://localhost:3000/api/subscribe', {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        // console.log("New subscriber:", formData);
-
-        // fetch("http://localhost:3000/api/subscribe", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(formData),
-        // });
-
-
-
-
-        // fetch('http://localhost:3000/api/subscribe', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(formData)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     // console.log('after saving data', data);
-        //     if(data.email){
-        //         formData.email = data.email;
-
-        //         const subscriber = [...formData, formData];
-        //         setFormData(subscriber);
-        //         e.target.reset();
-        //     }
-        //     return toast.error("Email already subscribed");
-        // })
-
-        // toast.success("Thank you for subscribing!");
-
-        // setFormData({ name: "", email: "" });
     };
 
     return (

@@ -86,3 +86,93 @@ const EventsCard = ({ event }) => {
 };
 
 export default EventsCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React from 'react';
+import useChallenges from '../Hooks/useChallenges';
+import { Container } from 'lucide-react';
+import ActiveChallengesCard from '../Components/ActiveChallengesCard';
+
+const Challenges = () => {
+    const { challenges, loading, error } = useChallenges();
+
+    if (loading) return <p>Loading challenges...</p>;
+    if (error) return <p>Error loading challenges.</p>;
+    if (!challenges.length) return <p>No challenges found.</p>;
+    // // Get today's date
+    // const today = new Date();
+
+    // // Filter active challenges
+    // const activeChallenges = challenges.filter(challenge => {
+    //     const start = new Date(challenge.startDate);
+    //     const end = new Date(challenge.endDate);
+    //     return today >= start && today <= end;
+    // });
+
+
+
+
+    return (
+        <div>
+            <Container>
+
+                <div className="max-w-7xl mx-auto px-4 py-10">
+                    <h2 className="text-3xl font-bold mb-6 text-[#297B33]">All Challenges</h2>
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {challenges.map((challenge) => (
+                            <ActiveChallengesCard key={challenge._id} challenge={challenge} />
+                        ))}
+                    </div>
+                </div>
+            </Container>
+        </div>
+    );
+};
+
+export default Challenges;

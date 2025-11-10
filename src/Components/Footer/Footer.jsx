@@ -7,10 +7,6 @@ const Footer = () => {
 
 
 
-    const handleNewsletter = (e) => {
-        e.preventDefault();
-        console.log(e.target.email.value);
-    }
     return (
         <footer className=" bg-[#1c2c44] text-white py-10">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -88,12 +84,8 @@ const Footer = () => {
                 {/* Newsletter */}
                 <div>
                     <h3 className="text-lg font-semibold text-[#82B532] mb-3">
-                        Join Our Newsletter
+                        Follow Us
                     </h3>
-                    <p className="text-sm text-gray-100 mb-3">
-                        Get weekly updates on sustainability challenges and local green
-                        events.
-                    </p>
                     {/* Social Media */}
                     <div className="flex flex-col my-4">
                         <div className="flex space-x-4 text-xl">
@@ -139,20 +131,6 @@ const Footer = () => {
                             </Link>
                         </div>
                     </div>
-                    <form onSubmit={handleNewsletter} className="flex items-center gap-2">
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email"
-                            className="input input-sm w-full max-w-xs text-black rounded-full focus:outline-none"
-                        />
-                        <button
-                            type="submit"
-                            className="btn btn-sm bg-[#82B532] hover:bg-[#6fae28] text-white rounded-full"
-                        >
-                            Join
-                        </button>
-                    </form>
 
                 </div>
 

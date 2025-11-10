@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const ActiveChallengesCard = ({ challenge }) => {
   return (
@@ -70,9 +71,9 @@ const ActiveChallengesCard = ({ challenge }) => {
         </div>
 
         {/* Button */}
-        <button className="mt-6 bg-[#297B33] hover:bg-[#82B532] text-white py-2 rounded-xl  transition-colors duration-300 w-full font-medium">
+        <Link to={"/view-challenges"} className="mt-6 bg-[#297B33] hover:bg-[#82B532] text-white py-2 rounded-xl  transition-colors duration-300 w-full font-medium">
           View Challenge
-        </button>
+        </Link>
       </div>
     </div>
   );

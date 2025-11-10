@@ -13,6 +13,8 @@ import PrivateRoute from "./PrivateRoute";
 import EcoTips from "../Pages/EcoTips";
 import Events from "../Pages/Events";
 import EventDetails from "../Components/EventDetails";
+import JoinChallenges from "../Pages/JoinChallenges";
+import ViewChallenge from "../Pages/ViewChallenge";
 
 
 const router = createBrowserRouter([
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/events/:id',
-            element: <EventDetails/>,
+            element: <PrivateRoute><EventDetails/></PrivateRoute>,
         },
         {
             path: '/register',
@@ -61,6 +63,14 @@ const router = createBrowserRouter([
         {
             path: '/challenges-add',
             element: <PrivateRoute><AddChallenges/></PrivateRoute>,
+        },
+        {
+            path: '/challenges/:id',
+            element: <PrivateRoute><ViewChallenge/></PrivateRoute>,
+        },
+        {
+            path: '/join-challenges',
+            element: <PrivateRoute><JoinChallenges/></PrivateRoute>,
         },
         {
             path: '/my-activities',
