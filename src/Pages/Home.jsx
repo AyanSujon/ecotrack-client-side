@@ -7,6 +7,7 @@ import Error404 from './Error404';
 import ActiveChallenges from '../Components/Home/ActiveChallenges';
 import RecentTips from '../Components/Home/RecentTips';
 import UpcomingEvents from '../Components/Home/UpcomingEvents';
+import WhyGoGreen from '../Components/Home/WhyGoGreen';
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
             <ActiveChallenges/>
             <RecentTips/>
             <UpcomingEvents/>
+            <WhyGoGreen/>
         </div>
     );
 };
