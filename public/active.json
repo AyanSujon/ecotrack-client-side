@@ -1,0 +1,58 @@
+[
+  {
+    "_id": { "$oid": "673b2b2c9d5e3b001c1e02a1" },
+    "title": "Year-Round Plastic Reduction",
+    "category": "Waste Reduction",
+    "description": "Reduce single-use plastics throughout the year by using reusable bottles, bags, straws, and containers, making eco-friendly choices in daily life to protect the environment and wildlife.",
+    "duration": 365,
+    "target": "Reduce plastic consumption",
+    "participants": 0,
+    "impactMetric": "kg plastic saved",
+    "createdBy": "admin@ecotrack.com",
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "imageUrl": "https://i.ibb.co.com/tw14Pf3S/Year-Round-Plastic-Reduction.jpg"
+  },
+  {
+    "_id": { "$oid": "673b2b2c9d5e3b001c1e02a2" },
+    "title": "Sustainable Commute Challenge",
+    "category": "Sustainable Transport",
+    "description": "Commit to using eco-friendly transportation for six months by cycling, walking, carpooling, or using public transit to reduce carbon emissions and support sustainable living habits daily.",
+    "duration": 240,
+    "target": "Lower carbon footprint",
+    "participants": 0,
+    "impactMetric": "kg CO2 reduced",
+    "createdBy": "admin@ecotrack.com",
+    "startDate": "2025-05-01",
+    "endDate": "2025-12-28",
+    "imageUrl": "https://i.ibb.co.com/HDb8bD5P/Sustainable-Commute-Challenge.jpg"
+  },
+  {
+    "_id": { "$oid": "673b2b2c9d5e3b001c1e02a3" },
+    "title": "Home Energy Optimization",
+    "category": "Energy Conservation",
+    "description": "Optimize your home energy usage for the next 12 months by installing energy-efficient appliances, turning off unused devices, and monitoring consumption to reduce bills and environmental impact.",
+    "duration": 365,
+    "target": "Save energy",
+    "participants": 0,
+    "impactMetric": "kWh saved",
+    "createdBy": "admin@ecotrack.com",
+    "startDate": "2025-01-15",
+    "endDate": "2025-12-15",
+    "imageUrl": "https://i.ibb.co.com/BVrM1fRh/Home-Energy-Optimization.webp"
+  },
+  {
+    "_id": { "$oid": "673b2b2c9d5e3b001c1e02a4" },
+    "title": "Water-Saving Marathon",
+    "category": "Water Conservation",
+    "description": "Engage in a year-long challenge to conserve water at home and in your community by reducing waste, fixing leaks, collecting rainwater, and using water-efficient appliances consistently.",
+    "duration": 365,
+    "target": "Save water",
+    "participants": 0,
+    "impactMetric": "liters saved",
+    "createdBy": "admin@ecotrack.com",
+    "startDate": "2025-03-01",
+    "endDate": "2026-02-28",
+    "imageUrl": "https://i.ibb.co.com/20Rq0qNw/Water-Saving-Marathon.jpg"
+  }
+]

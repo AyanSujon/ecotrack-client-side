@@ -1,0 +1,4 @@
+Another color: #21bded
+Footer color: #1c2c44
+
+primary color: [#297B33], hover color: [#82B532]
