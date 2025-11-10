@@ -243,7 +243,7 @@ const ViewChallenge = () => {
 
         {/* Participant List for this Challenge */}
         <div className="text-center ">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#297B33]">
             Joined Participants in This Challenge
           </h2>
           <p className="text-gray-600 mt-2 text-sm md:text-base">
