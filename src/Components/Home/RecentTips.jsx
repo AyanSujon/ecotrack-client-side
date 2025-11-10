@@ -25,7 +25,7 @@ const RecentTips = () => {
                 </div>
 
                 {/* Challenge Cards */}
-                <div className="grid gap-6 grid-cols-1 md:grid-cols-3 px-6 md:px-12">
+                <div className="grid  justify-center gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 md:px-12">
                     {recentTips.map((tip) => (
                         <EcoTipCard key={tip._id} tip={tip} />
                     ))}

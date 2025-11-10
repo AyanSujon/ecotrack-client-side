@@ -32,7 +32,7 @@ const ActiveChallenges = () => {
                 </div>
 
                 {/* Challenge Cards */}
-                <div className="grid gap-6 grid-cols-1 md:grid-cols-2 px-6 md:px-12">
+                <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
                     {firstFourActive.map((challenge) => (
                         <ActiveChallengesCard key={challenge._id} challenge={challenge} />
                     ))}

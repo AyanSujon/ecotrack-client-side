@@ -26,7 +26,7 @@ const {events}= useEvents();
         </div>
 
         {/* Event Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid justify-center sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {recentEvents.map((event) => (
             <EventsCard key={event._id} event={event}  />
             
