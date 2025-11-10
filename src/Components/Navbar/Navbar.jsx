@@ -1,7 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
-import Swal from 'sweetalert2'
 import { AuthContext } from '../../Context/AuthContext';
 import Container from '../../Layouts/Container';
 
@@ -9,32 +8,12 @@ import Container from '../../Layouts/Container';
 
 const Navbar = () => {
     const { user, signOutUser, loading } = useContext(AuthContext);
-    console.log(user)
-    // const btnclick = () => {
-    //     Swal.fire({
-    //         title: "Good job!",
-    //         text: "You clicked the button!",
-    //         icon: "success"
-    //     });
-    // }
-
-
-
-
 
     const links = <>
         <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
         <li><NavLink to={"/challenges"} className={"font-semebold"}>Challenges</NavLink></li>
         <li><NavLink to={"/eco-tips"} className={"font-semebold"}>Eco Tips</NavLink></li>
         <li><NavLink to={"/events"} className={"font-semebold"}>Events</NavLink></li>
-        {
-            user ?
-                <li><NavLink to={`/challenges-add`} className={"font-semebold"}>Add Challenges</NavLink></li>
-                : ""
-
-
-        }
-
 
     </>
     return (

@@ -13,7 +13,6 @@ import PrivateRoute from "./PrivateRoute";
 import EcoTips from "../Pages/EcoTips";
 import Events from "../Pages/Events";
 import EventDetails from "../Components/EventDetails";
-import JoinChallenges from "../Pages/JoinChallenges";
 import ViewChallenge from "../Pages/ViewChallenge";
 
 
@@ -67,10 +66,6 @@ const router = createBrowserRouter([
         {
             path: '/challenges/:id',
             element: <PrivateRoute><ViewChallenge/></PrivateRoute>,
-        },
-        {
-            path: '/join-challenges',
-            element: <PrivateRoute><JoinChallenges/></PrivateRoute>,
         },
         {
             path: '/my-activities',
