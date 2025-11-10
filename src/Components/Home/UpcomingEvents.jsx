@@ -1,5 +1,4 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
 import { FaCalendarCheck } from "react-icons/fa";
 import EventsCard from "../EventsCard";
 import { Link } from "react-router";
@@ -7,7 +6,7 @@ import useEvents from "../../Hooks/useEvents";
 
 const UpcomingEvents = () => {
 
-const {events, loading, error}= useEvents();
+const {events}= useEvents();
 // console.log(events);
   // Sort by date (latest upcoming first)
   const recentEvents = events?.sort((a, b) => new Date(a.date) - new Date(b.date))?.slice(0, 4); // Only 4 recent ones
@@ -28,11 +27,11 @@ const {events, loading, error}= useEvents();
 
         {/* Event Cards Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {recentEvents.map((event, index) => (
-            <EventsCard key={index} event={event} />
+          {recentEvents.map((event) => (
+            <EventsCard key={event._id} event={event}  />
+            
           ))}
         </div>
-
         {/* View All Button */}
         <div className="text-center mt-10">
           <Link to={"/events"} className="btn bg-[#297B33] hover:bg-[#82B532] text-white transition-all">
@@ -40,8 +39,6 @@ const {events, loading, error}= useEvents();
           </Link>
         </div>
 
-        {/* Toast Container */}
-        <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </section>
   );

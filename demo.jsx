@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router";
+// import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaUsers } from "react-icons/fa";
+import { Link } from "react-router";
 
 const EventsCard = ({ event }) => {
+
   const {
     _id,
     title,
@@ -23,10 +26,21 @@ const EventsCard = ({ event }) => {
     minute: "2-digit",
   });
 
+//   const handleJoin = () => {
+//     if (currentParticipants >= maxParticipants) {
+//       toast.error("Event is full!");
+//     } else {
+//       toast.success("You have successfully joined the event!");
+//     }
+//   };
+
   return (
     <div className="card w-full max-w-md bg-white border border-gray-200 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 rounded-2xl">
       <div className="card-body p-6">
-        <h2 className="card-title text-xl font-semibold text-[#297B33]">
+        <h2
+          className="card-title text-xl font-semibold"
+          style={{ color: "#297B33" }}
+        >
           {title}
         </h2>
         <p className="text-gray-600">{description}</p>
@@ -42,17 +56,29 @@ const EventsCard = ({ event }) => {
             <FaUser className="text-[#297B33]" /> {organizer}
           </p>
           <p className="flex items-center gap-2">
-            <FaUsers className="text-[#297B33]" /> {currentParticipants} / {maxParticipants} participants
+            <FaUsers className="text-[#297B33]" /> {currentParticipants} /{" "}
+            {maxParticipants} participants
           </p>
         </div>
 
         <div className="card-actions justify-end mt-5">
-          <Link
+            <Link
             to={`/events/${_id}`}
             className="btn btn-sm text-white bg-[#297B33] hover:bg-[#82B532] border-none rounded-full transition-all"
           >
             View Event Details
           </Link>
+          {/* <button
+            onClick={handleJoin}
+            disabled={currentParticipants >= maxParticipants}
+            className={`btn btn-sm text-white transition-all border-none rounded-full ${
+              currentParticipants >= maxParticipants
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#297B33] hover:bg-[#82B532]"
+            }`}
+          >
+            {currentParticipants >= maxParticipants ? "Full" : "Join Event"}
+          </button> */}
         </div>
       </div>
     </div>
