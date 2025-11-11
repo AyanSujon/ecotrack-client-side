@@ -1,20 +1,25 @@
 import React from "react";
 import ActiveChallengesCard from "../Components/ActiveChallengesCard";
 import Loading from "./Loading";
-import useChallenges from "../hooks/useChallenges";
+import useChallenges from "../Hooks/useChallenges";
+
 
 const Challenges = () => {
   const { challenges, loading, error } = useChallenges();
+    // Sort challenges by _id (recent first)
+  const sortedChallenges = [...challenges].sort(
+    (a, b) => b._id.localeCompare(a._id) // newest first
+  );
 
   if (loading) return <Loading/>;
   if (error) return <p>Error loading challenges.</p>;
-  if (!challenges.length) return <p>No challenges found.</p>;
+  if (!sortedChallenges.length) return <p>No challenges found.</p>;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
-        {challenges.map((challenge) => (
+        {sortedChallenges.map((challenge) => (
           <ActiveChallengesCard key={challenge._id} challenge={challenge} />
         ))}
       </div> 

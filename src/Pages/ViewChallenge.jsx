@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import ParticipantCard from "../Components/ParticipantCard";
 import Swal from "sweetalert2";
 
+
 const ViewChallenge = () => {
   const { participants } = useParticipants();
   const { id } = useParams();
@@ -36,6 +37,7 @@ const ViewChallenge = () => {
     });
   };
 
+  // Initial form data (Added userId, status, progress)
   const [formData, setFormData] = useState({
     participantName: "",
     participantEmail: "",
@@ -43,6 +45,8 @@ const ViewChallenge = () => {
     location: "",
     joinDate: getCurrentDateTime(),
     notes: "",
+    status: "Not Started",
+    progress: 0,
   });
 
   if (loading) return <Loading />;
@@ -88,7 +92,10 @@ const ViewChallenge = () => {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...formData, challengeId: localChallenge._id }),
+          body: JSON.stringify({
+            ...formData,
+            challengeId: localChallenge._id,
+          }),
         }
       );
 
@@ -115,6 +122,8 @@ const ViewChallenge = () => {
           location: "",
           joinDate: getCurrentDateTime(),
           notes: "",
+          status: "Not Started",
+          progress: 0,
         });
 
         // Success alert
@@ -208,7 +217,7 @@ const ViewChallenge = () => {
 
         {/* Join Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+          <div className="fixed inset-0 bg-black/70 bg-opacity-30 flex justify-center items-center z-50">
             <div className="bg-white rounded-2xl w-11/12 md:w-2/5 p-6 shadow-xl relative overflow-y-auto">
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -320,10 +329,7 @@ const ViewChallenge = () => {
 
         <div className="grid justify-center grid-cols-1 lg:grid-cols-2 gap-6 py-10">
           {participants.map((participant) => (
-            <ParticipantCard
-              key={participant._id}
-              participant={participant}
-            />
+            <ParticipantCard key={participant._id} participant={participant} />
           ))}
         </div>
       </Container>

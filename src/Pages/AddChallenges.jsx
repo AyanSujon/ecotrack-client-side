@@ -1,13 +1,12 @@
 // AddChallenges.jsx
 import React, { useContext, useState } from "react";
-
-import { toast } from "react-toastify";
 import { FaPlus } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 
 const AddChallenges = () => {
-  const { user, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
 
   const [formData, setFormData] = useState({
@@ -75,22 +74,71 @@ const AddChallenges = () => {
     });
     // console.log("After form submission", formData);
 
-    // Now create user in the database
-    fetch(`http://localhost:3000/api/challenges`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log("Data after user submission: ", data);
-      })
-    setLoading(false);
-    toast.success("Add Challenges Successfull!");
+    
+    // // Now create user in the database
+    // fetch(`http://localhost:3000/api/challenges`, {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify(formData)
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log("Data after user submission: ", data);
+    //   })
+    // setLoading(false);
+
+    //         // Success alert
+    //         Swal.fire({
+    //           title: "Challenge Added!",
+    //           text: "Your challenge has been successfully created.",
+    //           icon: "success",
+    //           confirmButtonText: "OK",
+    //           buttonsStyling: false,
+    //           customClass: {
+    //             confirmButton:
+    //               "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
+    //           },
+    //         });
 
 
+fetch(`http://localhost:3000/api/challenges`, {
+  method: "POST",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify(formData),
+})
+  .then((res) => res.json())
+  .then((data) => {
+    if (data.success) {
+      Swal.fire({
+        title: "Challenge Added!",
+        text: "Your challenge has been successfully created.",
+        icon: "success",
+        confirmButtonText: "OK",
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
+        },
+      });
+    } else {
+      Swal.fire({
+        title: "Duplicate Challenge!",
+        text: data.message || "You have already added this challenge.",
+        icon: "error",
+        confirmButtonText: "OK",
+        buttonsStyling: false,
+        customClass: {
+          confirmButton:
+            "bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-xl transition-colors",
+        },
+      });
+    }
+  })
+  .catch((error) => console.error("Error:", error));
 
 
 

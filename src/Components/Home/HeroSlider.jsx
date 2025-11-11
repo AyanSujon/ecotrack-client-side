@@ -4,6 +4,8 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "./HeroSlider.css";
+import { Link } from "react-router";
+
 
 const HeroSlider = () => {
   return (
@@ -26,9 +28,9 @@ const HeroSlider = () => {
               Be part of a sustainable community where every small action
               counts toward a cleaner, greener planet.
             </p>
-            <button className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
+            <Link to={"/events"} className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
               Join Now
-            </button>
+            </Link>
           </div>
         </SwiperSlide>
 
@@ -42,9 +44,9 @@ const HeroSlider = () => {
               Test your eco-habits and join community challenges that make
               real-world impact — from recycling to energy saving.
             </p>
-            <button className="btn bg-white text-[#297B33] hover:bg-[#F0FDF4] border-none">
+            <Link to={"/challenges"} className="btn bg-white text-[#297B33] hover:bg-[#F0FDF4] border-none">
               Explore Challenges
-            </button>
+            </Link>
           </div>
         </SwiperSlide>
 
@@ -65,9 +67,9 @@ const HeroSlider = () => {
                 Stay connected with local eco-initiatives, workshops, and
                 meetups that empower sustainable living.
               </p>
-              <button className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
+              <Link to={"/events"} className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
                 Browse Events
-              </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -82,9 +84,9 @@ const HeroSlider = () => {
               Monitor your personal progress, carbon savings, and contribution
               to the environment — and celebrate your green wins!
             </p>
-            <button className="btn bg-[#297B33] hover:bg-[#82B532] text-white border-none">
+            <Link to={"/my-activities"} className="btn bg-[#297B33] hover:bg-[#82B532] text-white border-none">
               Start Tracking
-            </button>
+            </Link>
           </div>
         </SwiperSlide>
 
@@ -105,9 +107,9 @@ const HeroSlider = () => {
                 Inspire others by sharing your sustainable habits and creative
                 eco-friendly hacks with the community.
               </p>
-              <button className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
+              <Link to={"/eco-tips"} className="btn bg-[#82B532] hover:bg-[#A3E635] text-white border-none">
                 Share Tips
-              </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
