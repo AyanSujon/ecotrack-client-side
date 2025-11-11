@@ -1,30 +1,185 @@
-import React from "react";
+// import React from "react";
+// import ActiveChallengesCard from "../Components/ActiveChallengesCard";
+// import Loading from "./Loading";
+// import useChallenges from "../Hooks/useChallenges";
+
+
+// const Challenges = () => {
+//   const { challenges, loading, error } = useChallenges();
+//     // Sort challenges by _id (recent first)
+//   const sortedChallenges = [...challenges].sort(
+//     (a, b) => b._id.localeCompare(a._id) // newest first
+//   );
+
+//   if (loading) return <Loading/>;
+//   if (error) return <p>Error loading challenges.</p>;
+//   if (!sortedChallenges.length) return <p>No challenges found.</p>;
+
+//   return (
+//     <div className="max-w-7xl mx-auto px-4 py-10">
+//       <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
+//       <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
+//         {sortedChallenges.map((challenge) => (
+//           <ActiveChallengesCard key={challenge._id} challenge={challenge} />
+//         ))}
+//       </div> 
+//     </div>
+//   );
+// };
+
+// export default Challenges;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// src/Pages/Challenges.jsx
+import React, { useState } from "react";
 import ActiveChallengesCard from "../Components/ActiveChallengesCard";
 import Loading from "./Loading";
 import useChallenges from "../Hooks/useChallenges";
 
-
 const Challenges = () => {
-  const { challenges, loading, error } = useChallenges();
-    // Sort challenges by _id (recent first)
-  const sortedChallenges = [...challenges].sort(
-    (a, b) => b._id.localeCompare(a._id) // newest first
-  );
+  // Filters input state
+  const [participantsMinInput, setParticipantsMinInput] = useState("");
+  const [participantsMaxInput, setParticipantsMaxInput] = useState("");
+  const [categoryInput, setCategoryInput] = useState("");
+  const [startDateFromInput, setStartDateFromInput] = useState("");
+  const [startDateToInput, setStartDateToInput] = useState("");
 
-  if (loading) return <Loading/>;
-  if (error) return <p>Error loading challenges.</p>;
-  if (!sortedChallenges.length) return <p>No challenges found.</p>;
+  // Filters applied state (used in hook)
+  const [appliedFilters, setAppliedFilters] = useState({});
+
+  // Predefined categories for dropdown
+  const categories = [
+    "Waste Reduction",
+    "Energy Saving",
+    "Water Conservation",
+    "Community Clean-Up",
+    "Sustainable Diet",
+    "Plastic-Free July"
+  ];
+
+  // Apply filters button
+  const handleApplyFilters = () => {
+    const f = {};
+    if (participantsMinInput) f.participantsMin = participantsMinInput;
+    if (participantsMaxInput) f.participantsMax = participantsMaxInput;
+    if (categoryInput) f.category = categoryInput;
+    if (startDateFromInput) f.startDateFrom = startDateFromInput;
+    if (startDateToInput) f.startDateTo = startDateToInput;
+    setAppliedFilters(f);
+  };
+
+  const { challenges, loading, error } = useChallenges(appliedFilters);
+
+  // Safe sorting
+  const sortedChallenges = [...challenges]
+    .filter(challenge => challenge && challenge._id)
+    .sort((a, b) => b._id.localeCompare(a._id));
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       <h2 className="text-3xl text-center py-5 font-bold mb-6 text-[#297B33]">All Challenges</h2>
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
-        {sortedChallenges.map((challenge) => (
-          <ActiveChallengesCard key={challenge._id} challenge={challenge} />
-        ))}
-      </div> 
+
+      {/* Filters UI */}
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mb-4 px-6 md:px-12">
+        <input
+          type="number"
+          placeholder="Min Participants"
+          value={participantsMinInput}
+          onChange={(e) => setParticipantsMinInput(e.target.value)}
+          className="input input-bordered w-full"
+        />
+        <input
+          type="number"
+          placeholder="Max Participants"
+          value={participantsMaxInput}
+          onChange={(e) => setParticipantsMaxInput(e.target.value)}
+          className="input input-bordered w-full"
+        />
+        {/* Category Dropdown */}
+        <select
+          value={categoryInput}
+          onChange={(e) => setCategoryInput(e.target.value)}
+          className="select select-bordered w-full"
+        >
+          <option value="">All Categories</option>
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>{cat}</option>
+          ))}
+        </select>
+        <input
+          type="date"
+          placeholder="Start Date From"
+          value={startDateFromInput}
+          onChange={(e) => setStartDateFromInput(e.target.value)}
+          className="input input-bordered w-full"
+        />
+        <input
+          type="date"
+          placeholder="Start Date To"
+          value={startDateToInput}
+          onChange={(e) => setStartDateToInput(e.target.value)}
+          className="input input-bordered w-full"
+        />
+        {/* Apply Filter Button */}
+        <button
+          onClick={handleApplyFilters}
+          className="btn bg-[#297B33] text-white hover:bg-[#82B532] w-full"
+        >
+          Apply Filter
+        </button>
+      </div>
+
+      {/* Content */}
+      {loading && <Loading />}
+      {error && <p className="text-center text-red-500">Error loading challenges.</p>}
+      {!loading && !error && !sortedChallenges.length && (
+        <p className="text-center text-gray-500">No challenges found.</p>
+      )}
+
+      {!loading && !error && sortedChallenges.length > 0 && (
+        <div className="grid gap-6 grid-cols-1 lg:grid-cols-2 px-6 md:px-12">
+          {sortedChallenges.map((challenge) => (
+            <ActiveChallengesCard key={challenge._id} challenge={challenge} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
 export default Challenges;
+
+

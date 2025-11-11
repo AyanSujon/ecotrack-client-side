@@ -13,7 +13,6 @@ import Newsletter from '../Components/Newsletter';
 
 const Home = () => {
 
-
         const { challenges, loading, error }  =useChallenges();
         if(loading){
         return <Loading/>;

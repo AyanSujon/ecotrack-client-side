@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const ActiveChallengesCard = ({ challenge }) => {
+  
   return (
     <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-md hover:shadow-2xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300 max-w-4xl mx-auto border border-gray-100">
       {/* Left Side: Image */}
