@@ -17,7 +17,7 @@ const Register = () => {
     });
     const [show, setShow] = useState(false);
     const [errors, setErrors] = useState({});
-    const { signInWithGoogle, createUser, updateUserProfile, signOutUser, setLoading, setUser } = useContext(AuthContext);
+    const { signInWithGoogle, createUser, updateUserProfile, signOutUser, setLoading, setUser, loading } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -78,11 +78,6 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const displayName = e.target.name?.value;
-        // const photoURL = e.target.photoURL?.value;
-        // const email = e.target.email?.value;
-        // const password = e.target.password?.value;
-        // console.log("signup function entered.", { displayName, photoURL, email, password });
 
         // Inline validation for each field
         validateField("name", formData.name);
@@ -94,7 +89,8 @@ const Register = () => {
         // Check if any error exists
         if (!formData.name || !formData.email || !formData.password || errors.name || errors.email || errors.photoURL || errors.password)
             return;
-
+        // Start loading
+        setLoading(true);
 
         console.log("Form Submitted:", formData);
 
@@ -114,7 +110,7 @@ const Register = () => {
                 // Step-2:  Uptade Profile 
                 updateUserProfile(displayName, photoURL)
                     .then(() => {
-                        console.log("Data after create user in the Firebase", res.user);
+                        // console.log("Data after create user in the Firebase", res.user);
                         setLoading(false);
                         const newUser = {
                             displayName,
@@ -316,7 +312,23 @@ const Register = () => {
                                         <p className="text-red-500 text-sm mt-1">{errors.password}</p>
                                     )}
 
-                                    <button className="btn  text-white bg-[#297B33] hover:bg-[#82B532] mt-4">Register</button>
+                                    {/* <button className="btn  text-white bg-[#297B33] hover:bg-[#82B532] mt-4">Register</button> */}
+
+
+                                    <button
+                                        type="submit"
+                                        className="btn text-white bg-[#297B33] hover:bg-[#82B532] mt-4 w-full"
+                                        disabled={loading}
+                                    >
+                                        {loading ? (
+                                            <>
+                                                <span className="loading loading-spinner"></span>
+                                                Registering...
+                                            </>
+                                        ) : (
+                                            "Register"
+                                        )}
+                                    </button>
                                 </fieldset>
                             </form>
                             {/* Google */}
