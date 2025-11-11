@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaUsers } from "react-icons/fa";
+import Loading from "../Pages/Loading";
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -59,8 +60,8 @@ const EventDetails = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (!event) return <p>Event not found</p>;
+  if (loading) return <Loading/>;
+  if (event) return <p className="flex justify-center mt-10">Event not found</p>;
 
   return (
     <div className="max-w-3xl mx-auto p-6 mt-8 bg-white rounded-2xl shadow-lg border border-gray-200">

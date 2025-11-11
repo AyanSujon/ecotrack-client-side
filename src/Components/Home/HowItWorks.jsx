@@ -26,7 +26,7 @@ const HowItWorks = () => {
     <section className="py-20 bg-white" id="how-it-works">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-[#297B33] mb-6"
+          className="text-4xl md:text-4xl font-bold text-[#297B33] mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

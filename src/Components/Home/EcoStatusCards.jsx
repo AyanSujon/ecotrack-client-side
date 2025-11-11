@@ -50,7 +50,7 @@ const EcoStatusCards = () => {
             <div className="flex justify-center text-green-500 text-3xl mb-2">
               <FaLeaf />
             </div>
-            <h2 className="text-3xl font-bold">{stats.activeChallenges}</h2>
+            <h2 className="text-4xl font-bold">{stats.activeChallenges}</h2>
             <p className="text-gray-500 mt-1">Active Challenges</p>
           </div>
 

@@ -18,7 +18,7 @@ const {events}= useEvents();
         <div className="text-center mb-10">
           <div className="flex justify-center text-[#297B33] items-center gap-2 mb-2">
             <FaCalendarCheck size={24} />
-            <h2 className="text-3xl font-bold">Upcoming Events</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Upcoming Events</h2>
           </div>
           <p className="text-gray-600 max-w-xl mx-auto">
             Join our community initiatives and make a real difference in the environment.

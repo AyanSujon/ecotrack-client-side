@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 const Footer = () => {
@@ -103,7 +104,7 @@ const Footer = () => {
                                 className="hover:text-[#82B532] transition-colors"
                                 aria-label="Twitter"
                             >
-                                <FaTwitter />
+                                <FaXTwitter />
                             </Link>
                             <Link
                                 to={"https://www.instagram.com/EcoTrack"}
