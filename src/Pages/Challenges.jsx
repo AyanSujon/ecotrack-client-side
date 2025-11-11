@@ -67,7 +67,7 @@
 import React, { useState } from "react";
 import ActiveChallengesCard from "../Components/ActiveChallengesCard";
 import Loading from "./Loading";
-import useChallenges from "../Hooks/useChallenges";
+import useAllChallenges from "../Hooks/useAllChallenges";
 
 const Challenges = () => {
   // Filters input state
@@ -101,7 +101,7 @@ const Challenges = () => {
     setAppliedFilters(f);
   };
 
-  const { challenges, loading, error } = useChallenges(appliedFilters);
+  const { challenges, loading, error } = useAllChallenges(appliedFilters);
 
   // Safe sorting
   const sortedChallenges = [...challenges]
