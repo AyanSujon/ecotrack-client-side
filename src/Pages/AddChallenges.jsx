@@ -3,11 +3,12 @@ import React, { useContext, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 
 const AddChallenges = () => {
   const { user } = useContext(AuthContext);
-
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
       title: "",
@@ -124,6 +125,7 @@ fetch(`http://localhost:3000/api/challenges`, {
             "bg-[#297B33] hover:bg-[#82B532] text-white py-2 px-4 rounded-xl transition-colors",
         },
       });
+      navigate("/my-activities");
     } else {
       Swal.fire({
         title: "Duplicate Challenge!",

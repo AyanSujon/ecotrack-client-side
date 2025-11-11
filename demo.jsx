@@ -1,3 +1,157 @@
+
+import React, { useEffect, useState, useContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
+
+const MyActivities = () => {
+  const { user } = useContext(AuthContext);
+  const [challenges, setChallenges] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // ✅ fetch logged-in user's challenges
+  useEffect(() => {
+    fetch(`http://localhost:3000/api/challenges`)
+      .then(res => res.json())
+      .then(data => {
+        const myData = data.filter(item => item.createdBy === user.email);
+        setChallenges(myData);
+        setLoading(false);
+      });
+  }, [user.email]);
+
+  // ✅ handle delete
+  const handleDelete = async (id) => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won’t be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (confirm.isConfirmed) {
+      fetch(`http://localhost:3000/api/challenges/${id}`, {
+        method: "DELETE",
+      })
+        .then(res => res.json())
+        .then(() => {
+          setChallenges(challenges.filter(ch => ch._id !== id));
+          Swal.fire("Deleted!", "Your challenge has been removed.", "success");
+        });
+    }
+  };
+
+  // ✅ handle update
+  const handleUpdate = async (id) => {
+    const challenge = challenges.find(ch => ch._id === id);
+
+    const { value: newTitle } = await Swal.fire({
+      title: "Edit Challenge Title",
+      input: "text",
+      inputValue: challenge.title,
+      showCancelButton: true,
+    });
+
+    if (newTitle) {
+      fetch(`http://localhost:3000/api/challenges/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: newTitle }),
+      })
+        .then(res => res.json())
+        .then(() => {
+          setChallenges(challenges.map(ch =>
+            ch._id === id ? { ...ch, title: newTitle } : ch
+          ));
+          Swal.fire("Updated!", "Challenge title updated successfully!", "success");
+        });
+    }
+  };
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <div className="max-w-3xl mx-auto py-10">
+      <h2 className="text-2xl font-bold mb-4">My Challenges</h2>
+      {challenges.length === 0 ? (
+        <p>No challenges added yet.</p>
+      ) : (
+        <ul className="space-y-4">
+          {challenges.map(ch => (
+            <li key={ch._id} className="border p-4 rounded-lg flex justify-between items-center">
+              <div>
+                <h3 className="font-bold text-lg">{ch.title}</h3>
+                <p className="text-sm text-gray-500">{ch.category}</p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => handleUpdate(ch._id)}
+                  className="btn btn-sm bg-blue-600 text-white"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(ch._id)}
+                  className="btn btn-sm bg-red-600 text-white"
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default MyActivities;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React from "react";
 import ActiveChallengesCard from "../Components/ActiveChallengesCard";
 import Loading from "./Loading";

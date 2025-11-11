@@ -14,6 +14,7 @@ import EcoTips from "../Pages/EcoTips";
 import Events from "../Pages/Events";
 import EventDetails from "../Components/EventDetails";
 import ViewChallenge from "../Pages/ViewChallenge";
+import EditChallenge from "../Pages/EditChallenge";
 
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
         {
             path: '/my-activities',
             element: <PrivateRoute><MyActivities/></PrivateRoute>,
+        },
+        {
+            path: '/my-activities/:id',
+            element: <PrivateRoute><EditChallenge/></PrivateRoute>,
         },
 
     ]
