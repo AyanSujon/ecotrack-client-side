@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import useEcoTips from '../Hooks/useEcoTips';
 import EcoTipCard from '../Components/EcoTipCard';
+import Loading from './Loading';
 
 
 const EcoTips = () => {

@@ -4,10 +4,11 @@ import { FaPlus } from "react-icons/fa";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import Loading from "./Loading";
 
 
 const AddChallenges = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -139,9 +140,9 @@ fetch(`http://localhost:3000/api/challenges`, {
         },
       });
     }
+     if (loading) return <Loading />;
   })
   .catch((error) => console.error("Error:", error));
-
 
 
 

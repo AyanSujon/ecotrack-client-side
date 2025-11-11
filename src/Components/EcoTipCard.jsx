@@ -10,8 +10,9 @@ const EcoTipCard = ({ tip }) => {
   const [isVoting, setIsVoting] = useState(false);
 
   const handleUpvote = async () => {
-    if (isVoting) return; 
-    setIsVoting(true);
+ 
+
+    if (isVoting) return;
     try {
       //  update +1 with prev
       setVoteCount(prev => prev + 1);
@@ -59,9 +60,8 @@ const EcoTipCard = ({ tip }) => {
         <button
           onClick={handleUpvote}
           disabled={isVoting}
-          className={`rounded-t-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-[#297B33] text-white text-center font-medium cursor-pointer hover:bg-[#82B532] transition-colors duration-300 ${
-            isVoting ? "opacity-70 cursor-not-allowed" : ""
-          }`}
+          className={`rounded-t-4xl flex flex-col justify-center items-center w-1/3 px-4 py-2 bg-[#297B33] text-white text-center font-medium cursor-pointer hover:bg-[#82B532] transition-colors duration-300 ${isVoting ? "opacity-70 cursor-not-allowed" : ""
+            }`}
         >
           <FaArrowUp />
           <span>{isVoting ? "Voting..." : "Upvote Tip"}</span>
