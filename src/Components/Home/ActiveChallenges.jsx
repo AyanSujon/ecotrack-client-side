@@ -9,8 +9,13 @@ const ActiveChallenges = () => {
     // Get today's date
     const today = new Date();
 
+        // Sort challenges by _id (recent first)
+  const sortedChallenges = [...challenges].sort(
+    (a, b) => b._id.localeCompare(a._id) // newest first
+  );
+
     // Filter active challenges
-    const activeChallenges = challenges.filter(challenge => {
+    const activeChallenges = sortedChallenges.filter(challenge => {
         const start = new Date(challenge.startDate);
         const end = new Date(challenge.endDate);
         return today >= start && today <= end;
