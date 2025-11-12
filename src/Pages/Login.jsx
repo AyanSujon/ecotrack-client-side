@@ -19,7 +19,7 @@ const Login = () => {
     const location = useLocation();
     const from = location.state || "/";
     const navigate = useNavigate();
-    console.log(from);
+    // console.log(from);
 
 
 
@@ -82,7 +82,7 @@ const Login = () => {
             return;
 
         setLoading(true); // Start loading
-        console.log("Form Submitted:", formData);
+        // console.log("Form Submitted:", formData);
 
 
         // firebase user Create functionalities
@@ -91,7 +91,7 @@ const Login = () => {
 
         loginUser(email, password)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setUser(res.user);
                 navigate(from);
                 setLoading(false);
@@ -112,7 +112,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
-                console.log("Data after create user in firebase", result.user);
+                // console.log("Data after create user in firebase", result.user);
                 const user = result.user;
                 const newUser = {
                     name: user.displayName,

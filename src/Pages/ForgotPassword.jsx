@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const ForgotPassword = () => {
     const handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.email.value)
+        // console.log(e.target.email.value)
     }
 
 

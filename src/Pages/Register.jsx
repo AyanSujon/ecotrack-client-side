@@ -92,7 +92,7 @@ const Register = () => {
         // Start loading
         setLoading(true);
 
-        console.log("Form Submitted:", formData);
+        // console.log("Form Submitted:", formData);
 
 
         // firebase user Create functionalities
@@ -235,7 +235,7 @@ const Register = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then((result) => {
-                console.log("Data after create user in firebase", result.user);
+                // console.log("Data after create user in firebase", result.user);
                 const user = result.user;
                 const newUser = {
                     name: user.displayName,
