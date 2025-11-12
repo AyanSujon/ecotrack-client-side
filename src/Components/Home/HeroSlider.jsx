@@ -9,7 +9,7 @@ import { Link } from "react-router";
 
 const HeroSlider = () => {
   return (
-    <div className="h-[90vh] w-full overflow-hidden">
+    <div className="h-[80vh] w-full overflow-hidden">
       <Swiper
         direction="vertical"
         pagination={{ clickable: true }}
