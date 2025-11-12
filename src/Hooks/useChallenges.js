@@ -4,6 +4,7 @@ import {useEffect, useState } from "react";
 
 
 const useChallenges = () => {
+
     const [challenges, setChallenges] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -21,9 +22,6 @@ const useChallenges = () => {
 };
 
 export default useChallenges;
-
-
-
 
 
 
