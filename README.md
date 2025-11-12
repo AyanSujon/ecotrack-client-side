@@ -1,6 +1,14 @@
 # EcoTrack — Sustainable Living Community
 
 [Live Site URL](https://ecotrack.netlify.com) <!-- Replace with your deployed website URL -->
+---
+[API](https://ecotrack-api.vercel.app/)
+---
+[Client-side-repo](https://github.com/AyanSujon/ecotrack-client-side.git)
+---
+[Server-side-repo](https://github.com/AyanSujon/ecotrack-server-side.git)
+---
+---
 
 ---
 
