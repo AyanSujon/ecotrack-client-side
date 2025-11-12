@@ -15,7 +15,7 @@ const MyActivities = () => {
 
   const fetchChallenges = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/challenges");
+      const res = await fetch("https://ecotrack-api.vercel.app/api/challenges");
       const data = await res.json();
       const userChallenges = data.filter((c) => c.createdBy === user.email);
       setChallenges(userChallenges);
@@ -43,7 +43,7 @@ const handleDelete = (id) => {
   }).then(async (result) => {
     if (result.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:3000/api/challenges/${id}`, {
+        const res = await fetch(`https://ecotrack-api.vercel.app/api/challenges/${id}`, {
           method: "DELETE",
         });
         const data = await res.json();

@@ -78,7 +78,7 @@ const AddChallenges = () => {
 
     
     // // Now create user in the database
-    // fetch(`http://localhost:3000/api/challenges`, {
+    // fetch(`https://ecotrack-api.vercel.app/api/challenges`, {
     //   method: 'POST',
     //   headers: {
     //     'content-type': 'application/json'
@@ -105,7 +105,7 @@ const AddChallenges = () => {
     //         });
 
 
-fetch(`http://localhost:3000/api/challenges`, {
+fetch(`https://ecotrack-api.vercel.app/api/challenges`, {
   method: "POST",
   headers: {
     "content-type": "application/json",

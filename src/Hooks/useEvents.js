@@ -9,7 +9,7 @@ const useEvents = () => {
 
     useEffect(()=> {
         setLoading(true)
-        axios('http://localhost:3000/api/events')
+        axios('https://ecotrack-api.vercel.app/api/events')
         .then(res => setEvents(res.data))
         .catch(err => setError(err))
         .finally(()=> setLoading(false))

@@ -17,7 +17,7 @@
 //       //  update +1 with prev
 //       setVoteCount(prev => prev + 1);
 
-//       await axios.patch(`http://localhost:3000/api/ecotips/${_id}/upvote`);
+//       await axios.patch(`https://ecotrack-api.vercel.app/api/ecotips/${_id}/upvote`);
 
 //     } catch (error) {
 //       console.error("Error upvoting:", error);
@@ -105,7 +105,7 @@ const EcoTipCard = ({ tip }) => {
       //  update +1 with prev
       setVoteCount(prev => prev + 1);
 
-      await axios.patch(`http://localhost:3000/api/ecotips/${_id}/upvote`);
+      await axios.patch(`https://ecotrack-api.vercel.app/api/ecotips/${_id}/upvote`);
 
     } catch (error) {
       console.error("Error upvoting:", error);

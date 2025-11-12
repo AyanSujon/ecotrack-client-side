@@ -88,7 +88,7 @@ const ViewChallenge = () => {
     // Submit participant data
     try {
       const participantRes = await fetch(
-        "http://localhost:3000/api/participants",
+        "https://ecotrack-api.vercel.app/api/participants",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
