@@ -2,14 +2,42 @@ import React from "react";
 import { FaCalendarCheck } from "react-icons/fa";
 import useEvents from "../Hooks/useEvents";
 import EventsCard from "../Components/EventsCard";
+import EcoTipCardSkeleton from "../Components/EcoTipCardSkeleton";
+import Container from "../Layouts/Container";
 
 
 const Events = () => {
 
-const {events}= useEvents();
+const {events, loading, error}= useEvents();
 // console.log(events);
   // Sort by date (latest upcoming first)
 //   const recentEvents = events?.sort((a, b) => new Date(a.date) - new Date(b.date))?.slice(0, 4); // Only 4 recent ones
+
+
+
+
+  if (loading) {
+    return (
+        <Container>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+          <EcoTipCardSkeleton key={n} />
+        ))}
+      </div>
+        </Container>
+    );
+  }
+
+  if (error) {
+    return <p className="text-red-500 text-center mt-10">{error}</p>;
+  }
+
+
+
+
+
+
+
 
   return (
     <section className="py-16 bg-base-200" id="upcoming-events">

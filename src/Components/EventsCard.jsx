@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaCalendarAlt, FaMapMarkerAlt, FaUser, FaUsers } from "react-icons/fa";
+import useEvents from "../Hooks/useEvents";
 
 const EventsCard = ({ event }) => {
+
+const {loading} = useEvents();
   const {
     _id,
     title,
@@ -22,6 +25,30 @@ const EventsCard = ({ event }) => {
     hour: "2-digit",
     minute: "2-digit",
   });
+
+
+
+  if (loading) {
+    return (
+      <div className="card w-full bg-white border border-gray-200 shadow-md rounded-2xl p-6 animate-pulse">
+        <div className="h-6 w-3/4 bg-gray-300 rounded skeleton mb-4"></div>
+        <div className="space-y-2 mb-4">
+          <div className="h-4 w-full bg-gray-300 rounded skeleton"></div>
+          <div className="h-4 w-5/6 bg-gray-300 rounded skeleton"></div>
+          <div className="h-4 w-2/3 bg-gray-300 rounded skeleton"></div>
+          <div className="h-4 w-4/5 bg-gray-300 rounded skeleton"></div>
+        </div>
+        <div className="h-8 w-1/3 bg-gray-300 rounded-full skeleton"></div>
+      </div>
+    );
+  }
+
+
+
+
+
+
+
 
   return (
     <div className="card w-full max-w-md bg-white border border-gray-200 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300 rounded-2xl">
