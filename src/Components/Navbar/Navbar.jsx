@@ -8,7 +8,7 @@ import Container from '../../Layouts/Container';
 
 const Navbar = () => {
     const { user, signOutUser, loading } = useContext(AuthContext);
-
+console.log(user.accessToken)
     const links = <>
         <li><NavLink to={"/"} className={"font-semebold"}>Home</NavLink></li>
         <li><NavLink to={"/challenges"} className={"font-semebold"}>Challenges</NavLink></li>
