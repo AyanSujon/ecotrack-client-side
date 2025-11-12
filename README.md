@@ -87,7 +87,7 @@ The main goals of EcoTrack are:
 ## Usage
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/ecotrack.git
+   git clone [https://github.com/AyanSujon/ecotrack-client-side.git](https://github.com/AyanSujon/ecotrack-client-side.git)
 
 
 
