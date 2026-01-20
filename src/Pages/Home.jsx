@@ -1,6 +1,5 @@
 import React from 'react';
 import HeroSlider from '../Components/Home/HeroSlider';
-import EcoStatusCards from "../components/Home/EcoStatusCards";
 import useChallenges from '../Hooks/useChallenges';
 import Loading from './Loading';
 import Error404 from './Error404';
@@ -14,6 +13,7 @@ import PopularChallenges from '../Components/Home/PopularChallenges';
 import ChallengeCategories from '../Components/Home/ChallengeCategories';
 import WeeklyGoal from '../Components/Home/WeeklyGoal';
 import FactsAndMyths from '../Components/Home/FactsAndMyths';
+import EcoStatusCards from '../components/Home/EcoStatusCards';
 
 const Home = () => {
 
