@@ -15,6 +15,10 @@ import Events from "../Pages/Events";
 import EventDetails from "../Components/EventDetails";
 import ViewChallenge from "../Pages/ViewChallenge";
 import EditChallenge from "../Pages/EditChallenge";
+import HowItWorks from "../Pages/HowItWorks";
+import ImpactTracker from "../Pages/ImpactTracker";
+import Community from "../Pages/Community";
+import About from "../Pages/About";
 
 
 const router = createBrowserRouter([
@@ -75,6 +79,22 @@ const router = createBrowserRouter([
         {
             path: '/my-activities/:id',
             element: <PrivateRoute><EditChallenge/></PrivateRoute>,
+        },
+        {
+            path: '/how-it-works',
+            element: <HowItWorks/>,
+        },
+        {
+            path: '/impact-tracker',
+            element: <ImpactTracker/>,
+        },
+        {
+            path: '/community',
+            element: <Community/>,
+        },
+        {
+            path: '/about',
+            element: <About/>,
         },
 
     ]
