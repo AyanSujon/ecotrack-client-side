@@ -19,6 +19,7 @@ import HowItWorks from "../Pages/HowItWorks";
 import ImpactTracker from "../Pages/ImpactTracker";
 import Community from "../Pages/Community";
 import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 
 const router = createBrowserRouter([
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
         {
             path: '/about',
             element: <About/>,
+        },
+        {
+            path: '/contact',
+            element: <Contact/>,
         },
 
     ]
