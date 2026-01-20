@@ -10,6 +10,10 @@ import UpcomingEvents from '../Components/Home/UpcomingEvents';
 import WhyGoGreen from '../Components/Home/WhyGoGreen';
 import HowItWorks from '../Components/Home/HowItWorks';
 import Newsletter from '../Components/Newsletter';
+import PopularChallenges from '../Components/Home/PopularChallenges';
+import ChallengeCategories from '../Components/Home/ChallengeCategories';
+import WeeklyGoal from '../Components/Home/WeeklyGoal';
+import FactsAndMyths from '../Components/Home/FactsAndMyths';
 
 const Home = () => {
 
@@ -26,9 +30,13 @@ const Home = () => {
         <div>
             <HeroSlider/>
             <EcoStatusCards/>
+            <WeeklyGoal/>
+            <FactsAndMyths/>
             <ActiveChallenges/>
             <RecentTips/>
             <UpcomingEvents/>
+            <PopularChallenges/>
+            <ChallengeCategories/>
             <WhyGoGreen/>
             <HowItWorks/>
             <Newsletter/>
