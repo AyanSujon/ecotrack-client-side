@@ -13,7 +13,7 @@ import PopularChallenges from '../Components/Home/PopularChallenges';
 import ChallengeCategories from '../Components/Home/ChallengeCategories';
 import WeeklyGoal from '../Components/Home/WeeklyGoal';
 import FactsAndMyths from '../Components/Home/FactsAndMyths';
-import EcoStatusCards from '../components/Home/EcoStatusCards';
+import EcoStatus from '../Components/Home/EcoStatus';
 
 const Home = () => {
 
@@ -29,7 +29,7 @@ const Home = () => {
     return (
         <div>
             <HeroSlider/>
-            <EcoStatusCards/>
+            <EcoStatus/>
             <WeeklyGoal/>
             <FactsAndMyths/>
             <ActiveChallenges/>

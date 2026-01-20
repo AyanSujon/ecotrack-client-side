@@ -3,7 +3,7 @@ import { FaLeaf, FaUsers, FaCloud } from "react-icons/fa";
 import Container from "../../Layouts/Container";
 import useChallenges from "../../Hooks/useChallenges";
 
-const EcoStatusCards = () => {
+const EcoStatus = () => {
   const { challenges, loading, error } = useChallenges();
 
   const [stats, setStats] = useState({
@@ -77,4 +77,4 @@ const EcoStatusCards = () => {
   );
 };
 
-export default EcoStatusCards;
+export default EcoStatus;
