@@ -1,8 +1,8 @@
 # EcoTrack — Sustainable Living Community
 
-[Live Site URL (Vercel)](https://ecotract.vercel.app) recommend 
+[Live Site URL (Vercel)](https://ecotract.vercel.app)
 ---
-[Live Site URL (Netlify)](https://eco-track-b12a10.netlify.app) 
+[Live Site URL (Netlify)](https://eco-track-b12a10.netlify.app)  recommend 
 ---
 [API](https://ecotrack-api.vercel.app/)
 ---
@@ -16,6 +16,8 @@
 
 ## Project Brief
 **EcoTrack** is a community-driven platform designed for eco-conscious individuals to explore sustainability challenges, share practical eco-tips, participate in local green events, and track their personal environmental impact. The platform emphasizes measurable progress, collaboration, and awareness-building within the sustainability community.
+---
+<img width="1353" height="610" alt="ecotack" src="https://github.com/user-attachments/assets/033deec3-7c0c-4dd6-b2d7-8971848cbe03" />
 
 ---
 
